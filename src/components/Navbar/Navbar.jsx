@@ -3,6 +3,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { MdMenu } from "react-icons/md";
 import { PiShoppingCartLight, PiUser } from "react-icons/pi";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -13,29 +14,28 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="relative bg-white">
-                <div className=" mx-auto px-4 sm:px-6">
-                    <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:space-x-10">
+            <div className="relative bg-white border-b-2">
+                <div className="mx-auto container px-4 md:px-0">
+                    <div className="flex justify-between items-center border-gray-100 py-6 md:space-x-10">
                         <div className="flex justify-start ">
-                            <a href="#">
-                                <span className="sr-only">Workflow</span>
+                            <Link href="/">
                                 <img
                                     className="h-8 w-auto sm:h-10"
                                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                                     alt=""
                                 />
-                            </a>
+                            </Link>
                         </div>
 
                         <nav className="hidden md:flex space-x-10">
-                            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Home</a>
-                            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Products</a>
-                            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">About</a>
-                            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Contact</a>
+                            <Link href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">Home</Link>
+                            <Link href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">Products</Link>
+                            <Link href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">About</Link>
+                            <Link href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">Contact</Link>
                         </nav>
 
                         <div className="flex items-center gap-4 relative">
-                            <div className={`flex items-center relative ${searchOpen ? 'block' : 'hidden'}`}>
+                            <div className={`flex z-50 items-center relative ${searchOpen ? 'block' : 'hidden'}`}>
                                 <input type="text" className={`border rounded-md px-2 py-1 focus:outline-none w-[18rem]`} />
                                 <span className="absolute right-2 cursor-pointer text-xl text-black"><IoSearchOutline /></span>
                             </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
 
                             <span onClick={() => setUserOpen(!userOpen)} className="text-2xl text-black cursor-pointer"><PiUser /></span>
 
-                            <div className={`${userOpen ? 'block' : 'hidden'} absolute right-1 top-14 w-60 border rounded p-4 flex flex-col gap-4 items-center`}>
+                            <div className={`${userOpen ? 'block' : 'hidden'} absolute right-0 top-14 w-60 border rounded p-4 flex flex-col gap-4 items-center z-50 bg-white shadow-md`}>
                                 <img className="w-16 rounded-full border-4 border-red-300"
                                     src="https://randomuser.me/api/portraits/women/21.jpg" alt="" />
                                 <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Profile</a>
